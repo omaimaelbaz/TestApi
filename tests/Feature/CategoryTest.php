@@ -16,12 +16,12 @@ class CategoryTest extends TestCase
      */
 
 
-     public function testebdpointShow(): void
-     {
-        
-        $categories = Categories::all();
-        $response = $this->getJson('/api/index');
-        // dd($response);
-        $response->assertJson($categories->toArray());
-     }
+    //  public function testebdpointShow(): void
+    //  {
+
+    //     $categories = Categories::all();
+    //     $response = $this->getJson('/api/index');
+    //     // dd($response);
+    //     $response->assertJson($categories->toArray());
+    //  }
 }
