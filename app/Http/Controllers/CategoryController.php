@@ -12,6 +12,7 @@ class CategoryController extends Controller
     {
 
        $category = Categories::all();
+    //    dd($category);
 
 
         return response()->json($category);
