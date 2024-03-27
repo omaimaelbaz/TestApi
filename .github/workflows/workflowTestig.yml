@@ -2,8 +2,7 @@ name: Laravel
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   laravel-tests:
