@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ Route::get('/users', [UserController::class, 'display']);
 Route::post('/create', [UserController::class, 'create']);
 Route::post('/update/{id}', [UserController::class, 'modify']);
 Route::get('/delete/{id}', [UserController::class, 'delete']);
+// auth
+Route::post("/login",[UserAuth::class,'index']);
+
 
 
 
