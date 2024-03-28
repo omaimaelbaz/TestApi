@@ -16,7 +16,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_DATABASE: carpriceestimator
+          MYSQL_DATABASE: Api
           MYSQL_ROOT_PASSWORD: password
         ports:
           - 3306:3306
