@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,11 @@ Route::get('/index', [CategoryController::class, 'index']);
 Route::post('/create', [CategoryController::class, 'create']);
 Route::post('/update/{id}', [CategoryController::class, 'update']);
 Route::get('/delete/{id}', [CategoryController::class, 'delete']);
+
+Route::get('/users', [UserController::class, 'display']);
+Route::post('/create', [UserController::class, 'create']);
+Route::post('/update/{id}', [UserController::class, 'modify']);
+Route::get('/delete/{id}', [UserController::class, 'delete']);
 
 
 
