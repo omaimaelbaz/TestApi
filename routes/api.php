@@ -17,11 +17,10 @@ use App\Http\Controllers\UserAuth;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::get('/index', [CategoryController::class, 'index']);
 Route::post('/create', [CategoryController::class, 'create']);
 Route::post('/update/{id}', [CategoryController::class, 'update']);
 Route::get('/delete/{id}', [CategoryController::class, 'delete']);
@@ -36,3 +35,9 @@ Route::post("/login",[UserAuth::class,'index']);
 
 
 
+Route::group(['middleware' => 'auth:sanctum'], function(){
+    //All secure URL's
+    Route::get('/index', [CategoryController::class, 'index']);
+
+
+    });
