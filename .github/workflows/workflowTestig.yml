@@ -33,7 +33,7 @@ jobs:
 
     - name: Setup Laravel
       run: |
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+        cp .env.example .env
         php artisan key:generate
 
     - name: Run migrations
