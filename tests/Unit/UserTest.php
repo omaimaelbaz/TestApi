@@ -11,7 +11,7 @@ class UserTest extends TestCase
     /**
      * A basic unit test example.
      */
-    // use RefreshDatabase;
+    //  use RefreshDatabase;
     public function test_user_can_be_created(): void
     {
         $response = $this->postJson('/api/create', [
