@@ -1,28 +1,20 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class UserTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * A basic unit test example.
      */
-    // public function test_example(): void
-    // {
-    //     $response = $this->get('/');
-
-    //     $response->assertStatus(200);
-    // }
     use RefreshDatabase;
-    public function test_user_can_be_created()
+    public function test_user_can_be_created(): void
     {
-
-        $response = $this->postJson('/api/users', [
+        $response = $this->postJson('/api/create', [
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => 'password',
@@ -32,4 +24,3 @@ class UserTest extends TestCase
         $this->assertCount(1, User::all());
     }
 }
-
