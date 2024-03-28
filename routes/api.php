@@ -21,12 +21,9 @@ use App\Http\Controllers\UserAuth;
 //     return $request->user();
 // });
 
-Route::post('/create', [CategoryController::class, 'create']);
 Route::post('/update/{id}', [CategoryController::class, 'update']);
-Route::get('/delete/{id}', [CategoryController::class, 'delete']);
 
 Route::get('/users', [UserController::class, 'display']);
-Route::post('/create', [UserController::class, 'create']);
 Route::post('/update/{id}', [UserController::class, 'modify']);
 Route::get('/delete/{id}', [UserController::class, 'delete']);
 // auth
@@ -38,6 +35,11 @@ Route::post("/login",[UserAuth::class,'index']);
 Route::group(['middleware' => 'auth:sanctum'], function(){
     //All secure URL's
     Route::get('/index', [CategoryController::class, 'index']);
+    Route::post('/create', [CategoryController::class, 'create']);
+    Route::get('/delete/{id}', [CategoryController::class, 'delete']);
+
+
 
 
     });
+    Route::post('/create', [UserController::class, 'create']);
