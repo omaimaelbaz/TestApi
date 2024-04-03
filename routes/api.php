@@ -2,9 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\UserAuth;
+use App\Http\Controllers\AuthController;
+use  App\Http\Controllers\UserController;
+use App\Http\Controllers\VoitureController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,25 +22,17 @@ use App\Http\Controllers\UserAuth;
 //     return $request->user();
 // });
 
-Route::post('/update/{id}', [CategoryController::class, 'update']);
-
 Route::get('/users', [UserController::class, 'display']);
+Route::post('/create', [UserController::class, 'CreateUser']);
 Route::post('/update/{id}', [UserController::class, 'modify']);
-Route::get('/delete/{id}', [UserController::class, 'delete']);
-// auth
-Route::post("/login",[UserAuth::class,'index']);
+Route::get('/delete/{id}', [UserController::class, 'DeleteUser']);
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/cars', [VoitureController::class, 'getallCars']);
+Route::post('/estimateprix', [VoitureController::class,'estimateprix']);
 
 
 
 
-Route::group(['middleware' => 'auth:sanctum'], function(){
-    //All secure URL's
-    Route::get('/index', [CategoryController::class, 'index']);
-    Route::post('/create', [CategoryController::class, 'create']);
-    Route::get('/delete/{id}', [CategoryController::class, 'delete']);
 
 
-
-
-    });
-    Route::post('/create', [UserController::class, 'create']);
